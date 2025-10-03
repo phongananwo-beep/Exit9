@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://lryjsq3bv88"]
+
+[ext_resource type="PackedScene" uid="uid://kdve63hcqpla" path="res://Scene/Player.tscn" id="1_tf838"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_j8356"]
+size = Vector2(10.995, 8.98)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tf838"]
+size = Vector3(11.3564, 0.057251, 8.97229)
+
+[node name="Test" type="Node3D"]
+
+[node name="Player" parent="." instance=ExtResource("1_tf838")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.54491, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("PlaneMesh_j8356")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.182129, -0.191711, -0.038269)
+shape = SubResource("BoxShape3D_tf838")
